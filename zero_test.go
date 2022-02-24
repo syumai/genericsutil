@@ -2,6 +2,22 @@ package genericsutil
 
 import "testing"
 
+func TestZero(t *testing.T) {
+	want := 0
+	got := Zero[int]()
+	if want != got {
+		t.Errorf("want: %v, got: %v", want, got)
+	}
+}
+
+func TestZeroOf(t *testing.T) {
+	want := 0
+	got := ZeroOf(100)
+	if want != got {
+		t.Errorf("want: %v, got: %v", want, got)
+	}
+}
+
 func TestIsZero(t *testing.T) {
 	tests := map[string]struct {
 		value int // comparable type value
