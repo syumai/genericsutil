@@ -6,7 +6,7 @@ func Zero[T any]() (_ T) {
 }
 
 // ZeroOf returns zero value of given type argument type.
-// The type argument can be infered using function argument (function argument type inference).
+// The type argument can be inferred using function argument (function argument type inference).
 func ZeroOf[T any](v T) (_ T) {
 	return
 }
