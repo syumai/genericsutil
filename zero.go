@@ -11,3 +11,9 @@ func ZeroOf[T any](v T) (_ T) {
 	return
 }
 
+// IsZero compares given function argument to its type's zero value and returns result as a boolean value.
+func IsZero[T comparable](v T) bool {
+	var zero T
+	return v == zero
+}
+
