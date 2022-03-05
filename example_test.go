@@ -1,6 +1,10 @@
 package genericsutil_test
 
-import "github.com/syumai/genericsutil"
+import (
+	"fmt"
+
+	"github.com/syumai/genericsutil"
+)
 
 func ExampleAssertComparable() {
 	// S1 implements comparable
@@ -22,4 +26,21 @@ func ExampleAssertComparable() {
 	// type _ genericsutil.AssertComparable[S2]
 
 	// Output:
+}
+
+func ExamplePointerOf() {
+	pInt := genericsutil.PointerOf(100)
+	fmt.Printf("value: %v, type: %T\n", *pInt, pInt)
+
+	pStr := genericsutil.PointerOf("abcde")
+	fmt.Printf("value: %v, type: %T\n", *pStr, pStr)
+
+	type X string
+	pX := genericsutil.PointerOf(X("abcde"))
+	fmt.Printf("value: %v", *pX) // type is *main.X
+
+	// Output:
+	// value: 100, type: *int
+	// value: abcde, type: *string
+	// value: abcde
 }
